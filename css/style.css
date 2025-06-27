@@ -1,0 +1,287 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background-color: #000;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5), transparent 50%), #2a2631;
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+}
+
+.blob {
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 650px;
+    height: 650px;
+    border-radius: 100%;
+    background-image: linear-gradient(#1100ff 10%, #9900ff);
+    filter: blur(250px);
+    transition: all 450ms ease-out;
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    /* transform: translate(calc(-50% + 15px), -50%); */
+    z-index: -1;
+    animation: blink-glow 6s infinite ease-in-out;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.container .blob {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background-image: linear-gradient(#1100ff 10%, #ff00f2);
+    filter: blur(250px);
+    transition: all 150ms ease-out;
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+}
+
+.content-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content h1 {
+    font-size: 3vw;
+    text-align: center;
+    animation: beat 1.5s infinite ease-in-out;
+}
+
+.buttons a:nth-child(1)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background: #fff;
+    opacity: 0;
+    z-index: -1;
+    animation: echo 2s infinite ease-out;
+}
+
+.buttons a:nth-child(1) {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.content p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.buttons a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 2rem;
+    margin: 0px 6px;
+    border-radius: 25px;
+}
+
+.buttons a:nth-child(1) {
+    color: #121212;
+    background-color: #ffffff;
+    transition: all .3s ease;
+}
+
+.buttons a:nth-child(1):hover {
+  background: #b7b7b7;
+  color: #000;
+}
+
+.buttons a:nth-child(2) {
+    border: 1px solid #fff;
+    transition: all .3s ease;
+}
+
+.buttons a:nth-child(2):hover {
+  background: #fff;
+  color: #000;
+}
+
+.buttons a:nth-child(3) {
+    color: #121212;
+    background-color: #ffffff;
+    transition: all .3s ease;
+}
+
+@keyframes ai {
+    from {
+      --a: 360deg;
+      --l: 0.35;
+      --o: 1;
+    }
+  
+    30% {
+      --l: 1.5;
+    }
+  
+    70% {
+      --o: 0.4;
+      --l: 0.05;
+    }
+  
+    98% {
+      --o: 0.7;
+    }
+  
+    to {
+      --a: 0deg;
+      --l: 0.35;
+      --o: 1;
+    }
+  }
+@keyframes blink-glow {
+    0%, 100% {
+      opacity: 0.5;
+      filter: blur(250px) brightness(1);
+    }
+    25% {
+      opacity: 0.9;
+      filter: blur(250px) brightness(1.3);
+    }
+    50% {
+      opacity: 1;
+      filter: blur(250px) brightness(1.6);
+    }
+    75% {
+      opacity: 0.9;
+      filter: blur(250px) brightness(1.3);
+    }
+    90% {
+        opacity: 0.5;
+        filter: blur(250px) brightness(1);
+    }
+}
+  
+@media only screen and (max-width: 700px) {
+    .blob {
+        width: 400px;
+        height: 400px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .blob {
+        width: 300px;
+        height: 300px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .blob {
+        width: 200px;
+        height: 200px;
+    }
+}
+@media only screen and (max-width: 300px) {
+    .blob {
+        width: 150px;
+        height: 150px;
+    }
+}
+@media only screen and (max-width: 200px) {
+    .blob {
+        width: 100px;
+        height: 100px;
+    }
+}
+@media only screen and (max-width: 100px) {
+    .blob {
+        width: 50px;
+        height: 50px;
+    }
+}
+@media only screen and (max-width: 50px) {
+    .blob {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media screen and (max-width: 2024px) {
+    body {
+        font-size: 18px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+  
+@media screen and (max-width: 1024px) {
+  .navbar {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .content {
+      padding: 20px;
+  }
+}
+  
+@media screen and (max-width: 768px) {
+  .sidebar {
+      display: none;
+  }
+
+  .main {
+      width: 100%;
+  }
+
+  .btn {
+      font-size: 16px;
+      padding: 10px;
+  }
+}
+  
+@media screen and (max-width: 480px) {
+  h1 {
+      font-size: 20px;
+  }
+
+  .menu {
+      display: block;
+      text-align: center;
+  }
+
+  .container {
+      padding: 10px;
+  }
+}
